@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lektion 7. Die Vielfalt verbindet — вікторина</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#f4f7fa;--card:#fff;--ink:#14263b;--mute:#58697c;--line:#d5dee8;--accent:#c0262d;--accent-ink:#fff;--glacier:#e3edf6;--ok:#1b7a4b;--ok-bg:#e2f4ea;--bad:#b3261e;--bad-bg:#fbe7e5;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a27;--card:#172536;--ink:#e8eef5;--mute:#9db0c4;--line:#2b3d52;--accent:#ee6a70;--accent-ink:#0f1a27;--glacier:#1d3047;--ok:#6fd3a0;--ok-bg:#163a2a;--bad:#ff9a92;--bad-bg:#431f1d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1a27;--card:#172536;--ink:#e8eef5;--mute:#9db0c4;--line:#2b3d52;--accent:#ee6a70;--accent-ink:#0f1a27;--glacier:#1d3047;--ok:#6fd3a0;--ok-bg:#163a2a;--bad:#ff9a92;--bad-bg:#431f1d;color-scheme:dark}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,sans-serif}
+*{box-sizing:border-box}
+:root{--sky1:#bfe0f5;--sky2:#fbf1dc;--m1:#c4d8ea;--m2:#98b8d4;--m3:#6a91b6;--sun:#ffd27a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky1:#0a1424;--sky2:#26405f;--m1:#22405e;--m2:#183049;--m3:#0f2033;--sun:#e9e4c6}}
+:root[data-theme="dark"]{--sky1:#0a1424;--sky2:#26405f;--m1:#22405e;--m2:#183049;--m3:#0f2033;--sun:#e9e4c6}
+html{background:var(--sky1)}
+body{background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 100%) fixed;min-height:100vh}
+.scene{position:fixed;left:0;right:0;bottom:0;height:46vh;z-index:-1;pointer-events:none}
+.scene svg{width:100%;height:100%;display:block}
+.sun{animation:rise 2.4s ease-out both}
+@keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.sun{animation:none}}
+main{position:relative}
+.card{box-shadow:0 8px 28px rgba(20,38,59,.14)}
+.stamp{border:2px dashed var(--line);border-radius:10px;padding:10px 14px;margin:14px 0;color:var(--mute)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+textarea{font:inherit;width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1,h2{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:2rem}h2{font-size:1.35rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.btn{font:inherit;font-weight:600;border:0;border-radius:10px;padding:12px 20px;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:focus-visible,.opt:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;color:var(--mute);font-size:.95rem}
+.bar{height:8px;background:var(--glacier);border-radius:6px;overflow:hidden;margin-bottom:16px}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.skill{display:inline-block;background:var(--glacier);border-radius:6px;padding:2px 10px;font-weight:600;font-size:.9rem;margin-bottom:10px}
+.q{font-size:1.2rem;font-weight:600;margin:0 0 14px}
+.script{background:var(--glacier);border-radius:10px;padding:12px 14px;margin:0 0 14px;font-style:italic}
+.opts{display:grid;gap:10px;margin:0 0 14px}
+.opt{font:inherit;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.ok{background:var(--ok-bg);border-color:var(--ok)}
+.opt.bad{background:var(--bad-bg);border-color:var(--bad)}
+.opt:disabled{cursor:default;color:var(--ink)}
+.fb{border-left:4px solid var(--line);padding:2px 0 2px 14px;margin:0 0 12px}
+.fb.ok{border-color:var(--ok)}.fb.bad{border-color:var(--bad)}
+.verdict{font-weight:700;margin:0 0 6px}
+.note{margin:0 0 10px}.note b{display:block}
+.score{font-family:Fraunces,Georgia,serif;font-size:3.2rem;font-weight:700;line-height:1}
+.row{display:grid;grid-template-columns:110px 1fr 48px;gap:10px;align-items:center;margin:8px 0}
+.row .bar{margin:0}
+input[type=text]{font:inherit;width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.hide{display:none}
+.rev{margin:0;padding-left:20px}
+.rev li{margin:6px 0}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="scene" aria-hidden="true"><svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice"><circle class="sun" cx="930" cy="150" r="46" fill="var(--sun)"/><path d="M0 400V210l90-60 70 40 110-100 100 110 80-50 120 90 90-70 130 110 100-80 120 90 90-60 90 60V400z" fill="var(--m1)"/><path d="M0 400V270l120-80 80 60 140-120 120 130 90-60 150 100 100-90 160 110 90-70 150 80V400z" fill="var(--m2)"/><path d="M0 400V330l100-50 120 40 130-70 140 80 120-40 160 60 130-50 150 50 150-30V400z" fill="var(--m3)"/></svg></div>
+<main>
+<section id="start" class="card">
+  <h1>Die Vielfalt verbindet</h1>
+  <p>Підсумковий проєкт до Lektion 7 для 9 класу. 24 завдання по 0,5 бала, разом 12 балів: Hören, Lesen, Grammatik, Wortschatz, Schreiben, Sprechen. Після кожної відповіді ви побачите правильний варіант, цікавий факт і граматичну підказку. Тест проходять один раз. Наприкінці зробіть скрін екрана з результатом і здайте його вчителю.</p>
+  <p><label for="name">Прізвище та ім’я учня (обов’язково)</label><input id="name" type="text" autocomplete="off"></p>
+  <button class="btn" id="go">Почати</button>
+  <p id="msg0" style="color:var(--bad);font-weight:600"></p>
+  <p id="tbox" class="hide"><button class="btn ghost" id="tbtn">Результати класу (для вчителя)</button></p>
+</section>
+
+<section id="quiz" class="hide">
+  <div class="top"><span id="cnt"></span><span id="pts"></span></div>
+  <div class="bar"><i id="prog"></i></div>
+  <div class="card">
+    <span class="skill" id="skill"></span>
+    <div id="script" class="script hide"></div>
+    <button class="btn ghost hide" id="speak" style="margin-bottom:14px">Прослухати текст</button>
+    <p class="q" id="qtext"></p>
+    <div class="opts" id="opts"></div>
+    <div id="fb" class="hide"></div>
+    <button class="btn hide" id="next">Далі</button>
+  </div>
+</section>
+
+<section id="end" class="hide card">
+  <h2 id="who"></h2>
+  <p class="score"><span id="total"></span> / 12</p>
+  <p id="level" style="font-weight:600"></p>
+  <div id="bars"></div>
+  <h2 style="margin-top:22px">Над чим попрацювати</h2>
+  <ol class="rev" id="rev"></ol>
+  <p class="stamp" id="stamp"></p>
+  <p id="savest" style="font-weight:600"></p>
+  <div id="codebox" class="hide"><p style="color:var(--mute)">Скопіюйте код і надішліть його вчителю (месенджер, пошта, Google Classroom). Вчитель побачить ваш результат у своїй таблиці.</p><textarea id="code" readonly rows="4"></textarea><p><button class="btn ghost" id="copy">Скопіювати код</button></p></div>
+</section>
+
+<section id="teacher" class="hide card">
+  <h2>Результати класу</h2>
+  <p id="tavg" style="font-weight:600"></p>
+  <div class="tw"><table><thead><tr><th>Учень</th><th>Бал</th><th>Оцінка</th><th>За видами діяльності</th><th>Дата</th><th></th></tr></thead><tbody id="ttb"></tbody></table></div>
+  <h2 style="margin-top:20px">Додати коди учнів</h2>
+  <p style="color:var(--mute)">Учні без прямого збереження надсилають код. Вставте коди (по одному в рядок).</p>
+  <textarea id="paste" rows="3"></textarea>
+  <p id="pmsg"></p>
+  <p><button class="btn" id="padd">Додати в таблицю</button> <button class="btn ghost" id="csv">Зберегти CSV</button> <button class="btn ghost" id="tback">Назад</button></p>
+</section>
+</main>
+
+<script>
+var Q=[
+{s:"Hören",t:"Wie viele Amtssprachen hat die Schweiz?",x:"Die Schweiz ist ein Land in den Alpen. Hier gibt es vier Amtssprachen: Deutsch, Französisch, Italienisch und Rätoromanisch. Die meisten Menschen sprechen Deutsch. Bern ist der Bundessitz der Schweiz.",o:["drei","vier","fünf"],a:1,f:"Рето-романською говорить лише близько 0,5 % населення Швейцарії, а німецькою — майже 62 %.",g:"Wie viele + іменник у множині. Числівник стоїть перед іменником: vier Amtssprachen."},
+{s:"Hören",t:"Wann feiert man den Nationalfeiertag in Liechtenstein?",x:"Liechtenstein liegt zwischen der Schweiz und Österreich. Das Fürstentum hat etwas über 40.000 Einwohner. Die Hauptstadt heißt Vaduz. Den Nationalfeiertag feiert man am fünfzehnten August.",o:["am 26. Oktober","am 15. August","am 1. Mai"],a:1,f:"З 1940 року свято поєднує церковне Mariä Himmelfahrt і день народження князя Франца Йозефа II. 26 жовтня — національне свято Австрії.",g:"На питання Wann? у датах: am + порядковий числівник із крапкою: am 15. August (am fünfzehnten August)."},
+{s:"Lesen",t:"Wie heißt der höchste Berg Österreichs?",x:"Österreich hat 9,2 Millionen Einwohner, die Hauptstadt ist Wien. Etwa zwei Drittel des Landes bestehen aus Gebirgen. Der höchste Berg ist der Großglockner mit 3.798 Metern. Seit 1995 ist Österreich Mitglied der Europäischen Union. Der Nationalfeiertag ist am 26. Oktober. In Wien findet jedes Jahr der berühmte Opernball statt.",o:["die Zugspitze","der Grauspitz","der Großglockner"],a:2,f:"До підніжжя Großglockner веде відома панорамна дорога. Zugspitze (2.962 м) — найвища гора Німеччини, Grauspitz (2.599 м) — Ліхтенштейну.",g:"Найвищий ступінь: hoch → der höchste Berg (суфікс -st-, умлаут, закінчення за родом)."},
+{s:"Lesen",t:"Seit wann ist Österreich EU-Mitglied?",x:"Österreich hat 9,2 Millionen Einwohner, die Hauptstadt ist Wien. Etwa zwei Drittel des Landes bestehen aus Gebirgen. Der höchste Berg ist der Großglockner mit 3.798 Metern. Seit 1995 ist Österreich Mitglied der Europäischen Union. Der Nationalfeiertag ist am 26. Oktober. In Wien findet jedes Jahr der berühmte Opernball statt.",o:["seit 1995","seit 1996","seit 2005"],a:0,f:"У 1996 році ЮНЕСКО оголосила замок Шенбрунн у Відні об’єктом Всесвітньої спадщини; його щороку відвідують близько 8 мільйонів туристів.",g:"Роки до 2000 читаємо сотнями: 1995 = neunzehnhundertfünfundneunzig; від 2000 — тисячами: zweitausendzweiundzwanzig."},
+{s:"Grammatik",t:"Ich habe gelesen, ___ Luxemburg zu den kleinsten Staaten der Welt gehört.",o:["ob","dass","wann"],a:1,f:"Площа Люксембургу — лише 2.586 км², але в країні три офіційні мови: французька, німецька та люксембурзька.",g:"Objektsatz з dass: після lesen, hören, wissen, meinen, erfahren. Змінювана частина дієслова — в кінець: … dass Luxemburg … gehört."},
+{s:"Grammatik",t:"Weißt du, ___ die Donau durch Österreich fließt?",o:["dass","wie","ob"],a:2,f:"Дунай має довжину 2.857 км, але лише близько 250 км із них протікають територією Австрії.",g:"Непряме питання «так/ні» вводимо ob; із питальним словом — самим словом (wie viele, wann, wo). Дієслово в кінці: … ob die Donau … fließt."},
+{s:"Grammatik",t:"Im Sommer reisen wir ___ Schweiz.",o:["in der","nach die","in die"],a:2,f:"У світі є лише дві квадратні національні прапори: швейцарський і прапор Ватикану.",g:"Die Schweiz — жіночий рід. Wo? → in der Schweiz (Dativ); Wohin? → in die Schweiz (Akkusativ). Країни та міста середнього роду: nach Österreich, nach Wien."},
+{s:"Wortschatz",t:"___ Staatsoberhaupt der Schweiz ist der Bundesrat. Який артикль?",o:["Der","Die","Das"],a:2,f:"У Швейцарії немає одного глави держави: колективне Staatsoberhaupt — це Bundesrat із семи осіб.",g:"Рід складного іменника визначає останній компонент: der Staat + das Oberhaupt = das Staatsoberhaupt; das Amt + die Sprache = die Amtssprache."},
+{s:"Schreiben",t:"Ich will Berge sehen, … Обери правильне речення.",o:["deshalb ich fahre in die Karpaten.","deshalb fahre ich in die Karpaten.","deshalb in die Karpaten fahre ich."],a:1,f:"В Україні 24 області, а площа країни — близько 603.700 км². Карпати — головний гірський масив Заходу України.",g:"Після deshalb / darum / deswegen порядок слів зворотний: дієслово на другому місці, підмет — після нього: deshalb fahre ich."},
+{s:"Schreiben",t:"Welcher Satz ist richtig geschrieben?",o:["Kyjiw liegt am Dnipro.","Kyjiw liegt an Dnipro.","Kyjiw am Dnipro liegt."],a:0,f:"У Києві понад 3 мільйони мешканців, а Університет імені Тараса Шевченка заснований у 1834 році.",g:"liegen an + Dativ (Wo?): an dem Dnipro → am Dnipro. У розповідному реченні дієслово стоїть на другому місці."},
+{s:"Sprechen",t:"A: „Weißt du, ob Liechtenstein einen Flughafen hat?“ Welche Antwort passt?",o:["„Ja, dort gibt es einen großen Flughafen.“","„Nein. Ich habe gelesen, dass Liechtenstein keinen Flughafen, keinen Hafen und keine Autobahnen hat.“","„Ich habe gelesen, ob das Land einen Flughafen hat.“"],a:1,f:"У Ліхтенштейні немає ні аеропорту, ні порту, ні автострад, ні армії. Країна — член ООН, але не член ЄС.",g:"Для відповіді-обґрунтування: Ich habe gelesen / gehört / erfahren, dass … Заперечення: kein- (keinen Flughafen, Akkusativ; keine Autobahnen, множина)."},
+{s:"Sprechen",t:"Du kommentierst eine Statistik. Welche Wendung passt für Platz 1 der Top-Liste?",o:["Am Ende der Top-Liste steht …","Etwas weniger beliebt ist …","Der Spitzenreiter ist …"],a:2,f:"За рейтингом найвідвідуваніших пам’яток Києва з підручника перше місце займає Хрещатик — головна вулиця столиці.",g:"Порядкові числівники: до 19 — суфікс -te, від 20 — -ste; der erste, der dritte — особливі форми. Клішé: An der zweiten Stelle …, Dann folgt …"}
+,
+{s:"Hören",t:"Welche Stadt ist zugleich ein Bundesland?",x:"Deutschland liegt in Mitteleuropa und grenzt an neun Länder. Die Bundesrepublik besteht aus sechzehn Bundesländern. Berlin ist die Hauptstadt und zugleich ein Bundesland. Auch Bremen und Hamburg sind Bundesländer. Der höchste Berg Deutschlands ist die Zugspitze mit 2.962 Metern.",o:["Berlin","Dresden","Salzburg"],a:0,f:"Три німецькі землі є містами: Берлін, Бремен і Гамбург.",g:"zugleich = водночас. Die Bundesrepublik besteht aus + Dativ: aus sechzehn Bundesländern."},
+{s:"Hören",t:"Wie hoch ist die Zugspitze?",x:"Deutschland liegt in Mitteleuropa und grenzt an neun Länder. Die Bundesrepublik besteht aus sechzehn Bundesländern. Berlin ist die Hauptstadt und zugleich ein Bundesland. Auch Bremen und Hamburg sind Bundesländer. Der höchste Berg Deutschlands ist die Zugspitze mit 2.962 Metern.",o:["2.599 Meter","2.962 Meter","3.798 Meter"],a:1,f:"Alpen — найбільший гірський масив Європи. Німецька частина називається Bayerische Alpen.",g:"Числа читаємо з тисяч: 2.962 = zweitausendneunhundertzweiundsechzig. Hoch → der höchste Berg."},
+{s:"Lesen",t:"Wo liegt Kyjiw?",x:"Kyjiw ist die Hauptstadt der Ukraine und liegt an beiden Ufern des Dnipro. Hier leben mehr als drei Millionen Menschen. Die Stadt ist ein wichtiges wissenschaftliches und kulturelles Zentrum. Zu den bekannten Bauten gehören das Höhlenkloster, die Sophienkathedrale, die Andreaskirche und das Goldene Tor. Der Ausbau der Stadt begann unter dem Fürsten Wolodymyr.",o:["nur am linken Ufer des Dnipro","an beiden Ufern des Dnipro","am Schwarzen Meer"],a:1,f:"Золоті ворота в Києві збудовано в XI столітті.",g:"an beiden Ufern: після beide прикметник має -en, іменник у Dativ Plural — Ufern (з -n)."},
+{s:"Lesen",t:"Unter welchem Fürsten begann der Ausbau Kyjiws?",x:"Kyjiw ist die Hauptstadt der Ukraine und liegt an beiden Ufern des Dnipro. Hier leben mehr als drei Millionen Menschen. Die Stadt ist ein wichtiges wissenschaftliches und kulturelles Zentrum. Zu den bekannten Bauten gehören das Höhlenkloster, die Sophienkathedrale, die Andreaskirche und das Goldene Tor. Der Ausbau der Stadt begann unter dem Fürsten Wolodymyr.",o:["unter dem Fürsten Wolodymyr","unter dem Fürsten Franz Josef","unter dem Bundesrat"],a:0,f:"Київ став політичним і культурним центром Київської держави.",g:"unter + Dativ (Wo?): unter dem Fürsten. Слабкий іменник der Fürst у Dativ має закінчення -en."},
+{s:"Grammatik",t:"Ich bin nicht sicher, ___ die Hauptstadt der Schweiz Bern ist.",o:["dass","ob","wie"],a:1,f:"Офіційно Швейцарія не має столиці: Берн має статус Bundessitz.",g:"Невпевненість → непряме питання «так/ні» з ob: Ich bin nicht sicher, ob … Bern ist. Якщо впевнений — dass."},
+{s:"Grammatik",t:"Wir wohnen ___ Ukraine, aber im Urlaub fahren wir ___ Österreich.",o:["in die … in","in der … nach","in der … in"],a:1,f:"Австрія складається з 9 федеральних земель, її столиця — Відень.",g:"Wo? → in der Ukraine (Dativ). Wohin? до країн середнього роду без артикля → nach Österreich."},
+{s:"Grammatik",t:"Ich kenne den ___ dieser Stadt nicht.",o:["Name","Namen","Names"],a:1,f:"Найбільше місто Ліхтенштейну — Schaan, а столиця — Vaduz.",g:"Особлива відміна: der Name, der Gedanke, der Buchstabe, das Herz. Akkusativ/Dativ: -n (den Namen), Genitiv: -ns (des Namens)."},
+{s:"Wortschatz",t:"Die ___ der Schweiz heißt Schweizer Franken.",o:["Fläche","Währung","Amtssprache"],a:1,f:"Один швейцарський франк = 100 раппенів. У Ліхтенштейні також платять швейцарськими франками.",g:"die Währung (валюта), die Fläche (площа), die Amtssprache (державна мова) — усі жіночого роду."},
+{s:"Wortschatz",t:"Deutschland ___ an neun Länder.",o:["grenzt","besteht","dient"],a:0,f:"Загальна довжина кордонів Німеччини — 3.876 км.",g:"grenzen an + Akkusativ; bestehen aus + Dativ; dienen als + Nominativ."},
+{s:"Wortschatz",t:"___ von Deutschland liegen die Nordsee, die Ostsee und Dänemark.",o:["Südlich","Nördlich","Westlich"],a:1,f:"Німеччина лежить у Центральній Європі, а Балтійське й Північне моря утворюють її природний кордон на півночі.",g:"im Norden → nördlich von + Dativ; im Süden → südlich; im Osten → östlich; im Westen → westlich."},
+{s:"Sprechen",t:"Du bist nicht ganz sicher. Was sagst du?",o:["Ich weiß genau, dass die Schweiz vier Amtssprachen hat.","Ich bin nicht sicher, aber ich glaube, dass die Schweiz vier Amtssprachen hat.","Ich bin nicht sicher, aber ich glaube, die Schweiz hat dass vier Amtssprachen."],a:1,f:"Віденська культура кав’ярень належить до нематеріальної культурної спадщини ЮНЕСКО.",g:"glauben / meinen / denken + dass-Satz, дієслово в кінці. Для впевненості: Ich weiß genau, dass …"},
+{s:"Sprechen",t:"Welche Quizfrage ist richtig formuliert?",o:["Könnt ihr bitte sagen, an wie viele Länder die Schweiz grenzt?","Könnt ihr bitte sagen, an wie viele Länder grenzt die Schweiz?","Könnt ihr bitte sagen, wie viele Länder die Schweiz grenzt an?"],a:0,f:"Швейцарія межує з п’ятьма країнами: Італією, Францією, Німеччиною, Австрією та Ліхтенштейном.",g:"Непряме питання: прийменник залишається перед питальним словом (an wie viele Länder), а дієслово йде в кінець: … die Schweiz grenzt."}
+];
+var SK=["Hören","Lesen","Grammatik","Wortschatz","Schreiben","Sprechen"];
+var MAXS={Hören:2,Lesen:2,Grammatik:3,Wortschatz:2,Schreiben:1,Sprechen:2};
+var i=0,pts=0,done=false,res=[],cur=null;
+function $(id){return document.getElementById(id)}
+function fmt(n){return String(n).replace(".",",")}
+function show(id){["start","quiz","end","teacher"].forEach(function(k){$(k).classList.toggle("hide",k!==id)})}
+function shuffle(a){for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[j];a[j]=t}return a}
+function render(){
+  var q=Q[i];done=false;
+  $("cnt").textContent="Завдання "+(i+1)+" з "+Q.length;
+  $("pts").textContent="Бали: "+fmt(pts)+" / 12";
+  $("prog").style.width=(i/Q.length*100)+"%";
+  $("skill").textContent=q.s;
+  $("qtext").textContent=q.t;
+  var sc=$("script"),sp=$("speak");
+  if(q.x){sc.textContent=q.x;sc.classList.remove("hide");
+    if(q.s==="Hören"){sc.classList.add("hide");$("speak").classList.remove("hide");$("speak").textContent="Прослухати текст";}else{sp.classList.add("hide")}
+  }else{sc.classList.add("hide");sp.classList.add("hide")}
+  var box=$("opts");box.innerHTML="";
+  cur=q.o.map(function(t,k){return{t:t,c:k===q.a}});shuffle(cur);
+  cur.forEach(function(o){var b=document.createElement("button");b.className="opt";b.type="button";b.textContent=o.t;b.onclick=function(){pick(o,b)};box.appendChild(b)});
+  $("fb").classList.add("hide");$("next").classList.add("hide");
+}
+function pick(o,btn){
+  if(done)return;done=true;var q=Q[i];
+  if(o.c)pts+=0.5;
+  res.push({s:q.s,ok:o.c,t:q.t,g:q.g});
+  var bs=$("opts").children;
+  for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(cur[k].c)bs[k].classList.add("ok")}
+  if(!o.c)btn.classList.add("bad");
+  var fb=$("fb");fb.className="fb "+(o.c?"ok":"bad");
+  fb.innerHTML="";
+  var v=document.createElement("p");v.className="verdict";v.textContent=o.c?"Правильно! +1 бал":"Не зовсім. 0 балів. Правильна відповідь підсвічена зеленим.";fb.appendChild(v);
+  [["Цікавий факт",q.f],["Граматична підказка",q.g]].forEach(function(p){var d=document.createElement("p");d.className="note";var b=document.createElement("b");b.textContent=p[0];d.appendChild(b);d.appendChild(document.createTextNode(p[1]));fb.appendChild(d)});
+  $("pts").textContent="Бали: "+fmt(pts)+" / 12";
+  var n=$("next");n.textContent=i===Q.length-1?"Показати результат":"Далі";n.classList.remove("hide");
+  if(Q[i].s==="Hören"){$("script").classList.remove("hide")}
+  n.focus();
+}
+function finish(){
+  $("prog").style.width="100%";
+  var nm=$("name").value.trim();
+  $("who").textContent=nm+" — результат";
+  $("stamp").textContent="Дата: "+new Date().toLocaleDateString("uk-UA")+". Тема: Lektion 7. Die Vielfalt verbindet. Правильних відповідей: "+(pts*2)+" із 24.";
+  $("total").textContent=fmt(pts);
+  var lv=pts>=10?"Високий рівень":pts>=7?"Достатній рівень":pts>=4?"Середній рівень":"Початковий рівень";
+  $("level").textContent=lv+" · Оцінка: "+Math.round(pts)+" з 12";
+  var bars=$("bars");bars.innerHTML="";
+  SK.forEach(function(s){
+    var g=res.filter(function(r){return r.s===s&&r.ok}).length*0.5,m=MAXS[s];
+    var row=document.createElement("div");row.className="row";
+    var l=document.createElement("span");l.textContent=s;
+    var b=document.createElement("div");b.className="bar";var f=document.createElement("i");f.style.width=(g/m*100)+"%";b.appendChild(f);
+    var n=document.createElement("span");n.textContent=fmt(g)+"/"+fmt(m);
+    row.appendChild(l);row.appendChild(b);row.appendChild(n);bars.appendChild(row);
+  });
+  var rev=$("rev");rev.innerHTML="";
+  var wrong=res.filter(function(r){return!r.ok});
+  if(!wrong.length){var li=document.createElement("li");li.textContent="Усі відповіді правильні. Чудова робота!";rev.appendChild(li)}
+  wrong.forEach(function(r){var li=document.createElement("li");var b=document.createElement("b");b.textContent=r.s+": ";li.appendChild(b);li.appendChild(document.createTextNode(r.g));rev.appendChild(li)});
+  var sk={};SK.forEach(function(s){sk[s]=res.filter(function(r){return r.s===s&&r.ok}).length*0.5});
+  var rec={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:nm,pts:pts,grade:Math.round(pts),sk:sk,date:new Date().toLocaleDateString("uk-UA")};
+  $("savest").textContent="Зробіть скрін цього екрана з результатом і здайте його вчителю.";show("end");
+}
+function chk(s){var h=0;for(var k=0;k<s.length;k++)h=(h*31+s.charCodeAt(k))%99991;return h.toString(36)}
+function enc(r){var b=btoa(unescape(encodeURIComponent(JSON.stringify(r))));return "L7-"+b+"-"+chk(b)}
+function clean(x){var sk={};SK.forEach(function(s){sk[s]=Math.max(0,Math.min(12,Number(x.sk&&x.sk[s])||0))});return{id:String(x.id||"").replace(/[^a-z0-9]/g,"").slice(0,24),name:String(x.name||"").slice(0,80),pts:Math.max(0,Math.min(12,Number(x.pts)||0)),grade:Math.max(0,Math.min(12,Math.round(Number(x.grade)||0))),sk:sk,date:String(x.date||"").slice(0,20)}}
+function dec(c){try{var p=c.trim().split("-");if(p.length!==3||p[0]!=="L7"||chk(p[1])!==p[2])return null;var r=clean(JSON.parse(decodeURIComponent(escape(atob(p[1])))));return r.id&&r.name?r:null}catch(e){return null}}
+async function save(rec){try{var db=await window.claude.use("db"),u=await window.claude.use("user");if(!db||!u)return false;if(await u.canEdit()){await db.doc("entries/"+rec.id).set(rec)}else{await db.doc("results/"+(await u.id())).set(rec)}return true}catch(e){return false}}
+async function already(){try{var db=await window.claude.use("db"),u=await window.claude.use("user");if(!db||!u||await u.canEdit())return null;var s=await db.doc("results/"+(await u.id())).get();return s.exists?s.data():null}catch(e){return null}}
+var rowsR=[],rowsE=[],subs=false;
+function trender(){var all=rowsR.concat(rowsE).sort(function(a,b){return String(a.name).localeCompare(String(b.name),"uk")});var tb=$("ttb");tb.innerHTML="";var sum=0;
+  all.forEach(function(r){sum+=Number(r.pts)||0;var tr=document.createElement("tr");var sk=r.sk||{};[r.name,fmt(r.pts)+" / 12",r.grade,SK.map(function(s){return s.slice(0,3)+" "+fmt(sk[s]||0)}).join(" · "),r.date].forEach(function(v){var td=document.createElement("td");td.textContent=v;tr.appendChild(td)});
+    var td=document.createElement("td");var b=document.createElement("button");b.className="btn ghost";b.textContent="Видалити";b.onclick=function(){window.claude.use("db").then(function(db){if(db&&confirm("Видалити результат учня "+r.name+"?"))db.doc(r._p).delete()})};td.appendChild(b);tr.appendChild(td);tb.appendChild(tr)});
+  $("tavg").textContent=all.length?"Учнів: "+all.length+". Середній бал: "+fmt(Math.round(sum/all.length*10)/10)+" / 12.":"Результатів поки немає.";window.__all=all}
+async function topen(){show("teacher");var db=await window.claude.use("db");if(!db||subs)return;subs=true;["results","entries"].forEach(function(c,ix){db.collection(c).onSnapshot(function(s){var a=s.docs.map(function(d){var x=clean(d.data());x._p=c+"/"+d.id;return x});if(ix===0)rowsR=a;else rowsE=a;trender()},function(){})})}
+$("tbtn").onclick=topen;$("tback").onclick=function(){show("start")};
+$("padd").onclick=async function(){var db=await window.claude.use("db"),ok=0,bad=0;if(!db){$("pmsg").textContent="Немає доступу до збереження.";return}
+  var ls=$("paste").value.split(/\s+/).filter(Boolean);for(var k=0;k<ls.length;k++){var r=dec(ls[k]);if(!r){bad++;continue}try{await db.doc("entries/"+r.id).set(r);ok++}catch(e){bad++}}
+  $("pmsg").textContent="Додано: "+ok+". Не розпізнано: "+bad+".";if(ok)$("paste").value=""};
+$("csv").onclick=async function(){var d=await window.claude.use("downloads");if(!d)return;var q=function(v){return '"'+String(v).replace(/"/g,'""')+'"'};
+  var rows=[["Учень","Бал","Оцінка"].concat(SK,["Дата"])];(window.__all||[]).forEach(function(r){rows.push([r.name,r.pts,r.grade].concat(SK.map(function(s){return r.sk[s]}),[r.date]))});
+  try{await d.save({filename:"lektion7-results.csv",data:"\ufeff"+rows.map(function(r){return r.map(q).join(";")}).join("\n")})}catch(e){}};
+$("copy").onclick=function(){var t=$("code");t.select();try{navigator.clipboard.writeText(t.value)}catch(e){}};
+(async function(){})();
+$("go").onclick=function(){if(!$("name").value.trim()){$("name").focus();$("name").placeholder="Введіть прізвище та ім’я";return}
+  Q.forEach(function(q,k){q.k=k});Q.sort(function(a,b){return SK.indexOf(a.s)-SK.indexOf(b.s)||a.k-b.k});
+  already().then(function(d){i=0;pts=0;res=[];show("quiz");render()})};
+$("next").onclick=function(){if(i===Q.length-1){finish()}else{i++;render()}};
+$("speak").onclick=function(){
+  try{
+    var u=new SpeechSynthesisUtterance(Q[i].x);u.lang="de-DE";u.rate=.9;
+    window.speechSynthesis.cancel();window.speechSynthesis.speak(u);
+  }catch(e){$("script").classList.remove("hide");$("speak").classList.add("hide")}
+};
+</script>
+</body>
+</html>
